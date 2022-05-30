@@ -20,7 +20,6 @@ use std::str::FromStr;
 
 use anyhow::{anyhow, Context, Result};
 use ipnetwork::{IpNetwork, Ipv4Network, Ipv6Network};
-use openssh_keys::PublicKey;
 use pnet_base::MacAddr;
 use serde_derive::Deserialize;
 
@@ -61,7 +60,6 @@ struct Dns {
 pub struct NutanixProvider {
     hostname: String,
     interfaces: Interfaces,
-    public_keys: Vec<String>,
     region: String,
     dns: Dns,
 }
