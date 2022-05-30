@@ -273,17 +273,6 @@ impl MetadataProvider for NutanixProvider {
         Ok(Some(self.hostname.clone()))
     }
 
-    fn ssh_keys(&self) -> Result<Vec<PublicKey>> {
-        let mut out = Vec::new();
-
-        for key in &self.public_keys {
-            let key = PublicKey::parse(key)?;
-            out.push(key);
-        }
-
-        Ok(out)
-    }
-
     fn networks(&self) -> Result<Vec<network::Interface>> {
         self.parse_network()
     }
