@@ -33,6 +33,7 @@ pub mod ibmcloud;
 pub mod ibmcloud_classic;
 pub mod kubevirt;
 pub mod microsoft;
+pub mod nutanix;
 pub mod openstack;
 pub mod packet;
 pub mod powervs;

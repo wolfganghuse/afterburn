@@ -27,6 +27,7 @@ use crate::providers::ibmcloud_classic::IBMClassicProvider;
 use crate::providers::kubevirt::KubeVirtProvider;
 use crate::providers::microsoft::azure::Azure;
 use crate::providers::microsoft::azurestack::AzureStack;
+use crate::providers::nutanix::NutanixProvider;
 use crate::providers::openstack;
 use crate::providers::openstack::network::OpenstackProviderNetwork;
 use crate::providers::packet::PacketProvider;
@@ -63,6 +64,7 @@ pub fn fetch_metadata(provider: &str) -> Result<Box<dyn providers::MetadataProvi
         "kubevirt" => box_result!(KubeVirtProvider::try_new()?),
         "openstack" => openstack::try_config_drive_else_network(),
         "openstack-metadata" => box_result!(OpenstackProviderNetwork::try_new()?),
+        "nutanix" => box_result!(NutanixProvider::try_new()?),
         "packet" => box_result!(PacketProvider::try_new()?),
         "powervs" => box_result!(PowerVSProvider::try_new()?),
         "vmware" => box_result!(VmwareProvider::try_new()?),
